@@ -33,6 +33,7 @@ public final class TagCount {
         System.out.println("=== Теги за частотою (зростання) ===");
         var list = new ArrayList<>(freq.entrySet());
         list.sort(Comparator.comparingInt((Map.Entry<String, Integer> a) -> a.getValue()).thenComparing(Map.Entry::getKey));
-        for (var e : list) System.out.println(e.getKey()+" : "+e.getValue());
+        for (var e : list)
+            System.out.println(e.getKey()+" : "+e.getValue());
     }
 }

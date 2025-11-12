@@ -34,8 +34,12 @@ public final class WordLineCount {
                 lineNo++;
                 if (line.isBlank()) continue;
                 int cnt = countWordsUk(line);
-                if (cnt > max) { max = cnt; result.clear(); result.add(new LineInfo(line, cnt, lineNo)); }
-                else if (cnt == max && max > 0) { result.add(new LineInfo(line, cnt, lineNo)); }
+                if (cnt > max) {
+                    max = cnt;
+                    result.clear();
+                    result.add(new LineInfo(line, cnt, lineNo)); }
+                else if (cnt == max && max > 0) {
+                    result.add(new LineInfo(line, cnt, lineNo)); }
             }
         }
         return result;

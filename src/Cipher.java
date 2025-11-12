@@ -61,8 +61,8 @@ public final class Cipher {
     public static void decryptFile(Path in, Path out, char key, Charset cs) throws IOException {
         try (ShiftReader r = new ShiftReader(Files.newBufferedReader(in, cs), key);
              BufferedWriter w = Files.newBufferedWriter(out, cs)) {
-            char[] buf = new char[4096];
-            int n; while ((n = r.read(buf)) != -1)
+                char[] buf = new char[4096];
+                int n; while ((n = r.read(buf)) != -1)
                 w.write(buf, 0, n);
         }
     }
