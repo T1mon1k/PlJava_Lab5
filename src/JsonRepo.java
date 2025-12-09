@@ -23,7 +23,7 @@ public final class JsonRepo {
     }
 
     public static List<DataItem> load(Path file) throws IOException {
-        if (!Files.exists(file)) throw new IOException("Файл не знайдено.");
+        if (!Files.exists(file)) throw new IOException("File not found.");
         String json = Files.readString(file, StandardCharsets.UTF_8);
         List<DataItem> result = new ArrayList<>();
         Pattern p = Pattern.compile("\\{\\s*\"id\"\\s*:\\s*(\\d+)\\s*,\\s*\"name\"\\s*:\\s*\"(.*?)\"\\s*}");

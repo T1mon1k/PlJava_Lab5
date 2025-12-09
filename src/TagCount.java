@@ -3,6 +3,7 @@ import java.net.URL;
 import java.nio.charset.Charset;
 import java.util.*;
 import java.util.regex.*;
+import java.util.ResourceBundle;
 
 public final class TagCount {
     public static String fetchUrl(String url, Charset cs) throws IOException {
@@ -24,13 +25,13 @@ public final class TagCount {
         return freq;
     }
 
-    public static void printByAlf(Map<String, Integer> freq) {
-        System.out.println("=== Теги за алфавітом (зростання) ===");
+    public static void printByAlf(Map<String, Integer> freq, ResourceBundle bundle) {
+        System.out.println(bundle.getString("msg.tags.alphabet"));
         new TreeMap<>(freq).forEach((k,v)-> System.out.println(k+" : "+v));
     }
 
-    public static void printByCount(Map<String, Integer> freq) {
-        System.out.println("=== Теги за частотою (зростання) ===");
+    public static void printByCount(Map<String, Integer> freq, ResourceBundle bundle) {
+        System.out.println(bundle.getString("msg.tags.freq"));
         var list = new ArrayList<>(freq.entrySet());
         list.sort(Comparator.comparingInt((Map.Entry<String, Integer> a) -> a.getValue()).thenComparing(Map.Entry::getKey));
         for (var e : list)
